@@ -1,0 +1,57 @@
+body {
+  background-color: #D2CCA1;
+  font-family: 'Helvetica Neue'
+}
+
+a {
+  text-decoration: none;
+  color: #387780;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+#app {
+  text-align: center;
+  margin: 50px auto;
+  text-transform: uppercase;
+}
+
+#app span > span {
+  display: inline-block;
+  font-size: 30px;
+  width: 40px;
+  margin: 5px;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px #A79E9D;
+  background-color: #DBD4D3;
+  font-weight: bold;
+}
+
+#app #unscrambled > span {
+  background-color: #387780;
+  color: #fff;
+}
+
+#app #unscrambled > span.error {
+  background-color: #E83151;
+}
+
+#app #unscrambled > span.win {
+  background-color: #1C901C;
+}
+
+#app #score {
+  text-transform: none;
+  margin: 50px;
+}
+
+footer {
+  text-align: center;
+}
