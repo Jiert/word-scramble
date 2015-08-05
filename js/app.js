@@ -31,23 +31,21 @@ var AppView = Backbone.View.extend({
     event.preventDefault();
     var letter, index;
 
+    // if backspace
     if (event.keyCode == 8 && this.indicies.length){
 
-      // get last letter of unscrambled
+      // get last letter and index
       letter = _(this.unscrambled).last();
-
-      // remove last letter of unscrambled
-      this.unscrambled.pop();
-
-      // get last index indicies
       index = _(this.indicies).last();
 
-      // remove last index indicies
+      // remove last letter and index
+      this.unscrambled.pop();
       this.indicies.pop();
 
-      // put it back into scrambled at the correct index
+      // put everything back where it was
       this.scrambled.splice(index, 0, letter);
 
+      // and then re-render
       this.renderArrays();
     }
     else {
@@ -59,13 +57,11 @@ var AppView = Backbone.View.extend({
         index = _(this.scrambled).indexOf(letter);
         this.scrambled.splice(index, 1);
 
-        // store index
+        // store index and letter
         this.indicies.push(index);
-
-        // put the letter in unscrambled
         this.unscrambled.push(letter);
 
-        // re-render everything
+        // re-render and see if we've won
         this.renderArrays();
         this.checkWin();
       }
@@ -86,13 +82,13 @@ var AppView = Backbone.View.extend({
   scramble: function(){
     this.word = this.model.get('word').toUpperCase();
 
-    // set up srambled word array
+    // create scrambled word
     this.scrambled = _.chain(this.word).toArray().shuffle().value();
 
-    // create an array to store unscrambled attempts
+    // unscrambled letters
     this.unscrambled = [];
 
-    // create an array of indicies for restoring scrambled letters
+    // indicies for restoring scrambled letters
     this.indicies = [];
 
     this.renderArrays();
