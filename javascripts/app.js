@@ -13,14 +13,15 @@ var AppView = Backbone.View.extend({
     this.model.fetch({
       data: {
         hasDictionaryDef: true,
-        excludePartOfSpeech: 'proper-noun',
-        minCorpusCount: 20000,
-        maxCorpusCount: 30000,
+        excludePartOfSpeech: 'proper-noun,abbreviation',
+        includePartOfSpeech: 'noun,adjective,verb',
+        minCorpusCount: 30000,
+        maxCorpusCount: -1,
         minDictionaryCount: 1,
         maxDictionaryCount:-1,
-        minLength: 5,
-        maxLength: 7,
-        api_key: 'a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'
+        minLength: 4,
+        maxLength: 6,
+        api_key: 'c2571d1d483030901b10a0ebe690822b33203e0fc71e9c57c'
       },
       success: this.scramble
     });
